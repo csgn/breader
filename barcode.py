@@ -8,12 +8,7 @@ class BarcodeDetector:
     @staticmethod
     def decode(file):
         stream = None
-        x = None
-
-        if type(file) != str:
-            x = np.fromfile(file, np.uint8)
-        else:
-            x = np.fromstring(file, np.uint8)
+        x = np.fromfile(file, np.uint8)
 
         if not x.any():
             return {"error": "file is corrupted"}
