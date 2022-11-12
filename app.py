@@ -1,8 +1,9 @@
 import os
+import sys
 
 from flask import Flask, abort, request
 from flask_cors import CORS
-from werkzeug.exceptions import sys
+
 
 from barcode import BarcodeDetector
 
