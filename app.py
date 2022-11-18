@@ -21,7 +21,7 @@ def index():
 
 @app.route('/barcode', methods=['POST'])
 def barcode():
-    if request.referrer in REFERRER_LIST:
+    if request.referrer not in REFERRER_LIST:
         return abort(403)
 
     file = request.files.get('file', None)
