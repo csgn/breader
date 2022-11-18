@@ -10,13 +10,18 @@ from barcode import BarcodeDetector
 app = Flask(__name__)
 cors = CORS(app)
 
+REFERRER_LIST = [
+    'https://bus-app.egaranti.net',
+    'https://panel.egaranti.com',
+]
+
 @app.route('/')
 def index():
     return abort(403)
 
 @app.route('/barcode', methods=['POST'])
 def barcode():
-    if request.referrer != os.environ.get('REFERRER_URL'):
+    if request.referrer in REFERRER_LIST:
         return abort(403)
 
     file = request.files.get('file', None)
