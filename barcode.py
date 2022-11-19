@@ -17,7 +17,7 @@ class BarcodeDetector:
         converted_file = Image.open(stream)
         res = decode(converted_file)
 
-        if res[0]:
+        if len(res) > 0:
             return {"data": res[0].data.decode('utf-8')}
 
         return {"error": "file is corrupted"}
